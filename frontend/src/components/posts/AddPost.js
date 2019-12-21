@@ -61,7 +61,6 @@ class AddPost extends Component {
 			<div>
 				<div className="story-container">
 					<div className="dummyTextBox">
-						<img className="profile-img" alt="imgF1" src={this.props.img} />
 						<div className="textbox-container">
 							{!this.state.showTextBox ? (
 								<div onClick={this.handleshowTextBox} className="dummyTextContainer">
