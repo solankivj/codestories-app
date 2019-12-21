@@ -28,7 +28,6 @@ class Posts extends Component {
 								<AddPost img={this.props.auth.user.avatar} />
 								{postContent}
 							</div>
-							<div className="section-3">Section 2</div>
 						</div>
 					</div>
 				</div>
