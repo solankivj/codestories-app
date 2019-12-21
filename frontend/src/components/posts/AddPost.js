@@ -82,7 +82,7 @@ class AddPost extends Component {
 										value={this.state.text}
 										onChange={this.onChange}
 										placeholder="Share your story!"
-										autofocus
+										autoFocus={true}
 									/>
 									<div className="share-post-btn">
 										<button type="submit">Share</button>
