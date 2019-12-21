@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+
 const key = require('../../config/keys');
+const Post = require('../../models/Post');
 
 function authenticationToken(req, res, next) {
   const authHeader = req.headers['authorization'];
@@ -16,7 +18,6 @@ function authenticationToken(req, res, next) {
   })
 }
 
-const Post = require('../../models/Post');
 
 // @route       GET api/post
 // @desc        Get all posts

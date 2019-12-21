@@ -41,7 +41,7 @@ export const addComment = (postID, commentData) => (dispatch) => {
 
 // Get Posts
 export const getPosts = () => (dispatch) => {
-	dispatch(setPostLanding);
+	dispatch(setPostLanding());
 	axios
 		.get('/api/post')
 		.then((res) =>
@@ -60,7 +60,7 @@ export const getPosts = () => (dispatch) => {
 
 // Get Posts By ID
 export const getPost = (id) => (dispatch) => {
-	dispatch(setPostLanding);
+	dispatch(setPostLanding());
 	axios
 		.get(`/api/post/${id}`)
 		.then((res) =>

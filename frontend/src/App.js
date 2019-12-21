@@ -12,7 +12,7 @@ import Post from './components/Post';
 import './App.css';
 import './sass/style.scss';
 import { setCurrentUser, requestToken } from './store/actions/authActions';
-console.log(store)
+
 // Check for token
 if (localStorage.jwtToken) {
 	// Set auth token header auth
