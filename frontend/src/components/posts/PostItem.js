@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addLike, removeLike } from '../../store/actions/postActions';
-import { FiMessageSquare, FiMoreVertical } from 'react-icons/fi';
 
 class PostItem extends Component {
 
@@ -32,7 +31,7 @@ class PostItem extends Component {
 						<div className="post-action">
 							<div className="been-there">
 								<button onClick={() => this.onClickLike(post.likes, post._id)}>
-									Been There ✋
+									Been There <span role="img">✋</span>
 								</button>
 							</div>
 							<Link className="comment-btn" to={`/post/${post._id}`}>

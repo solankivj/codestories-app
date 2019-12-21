@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_POST, GET_ERRORS, GET_POSTS, GET_POST, POST_LOADING, CLEAR_ERRORS } from './types';
+import { ADD_POST, GET_ERRORS, GET_POSTS, GET_POST, POST_LOADING, CLEAR_ERRORS, CLEAR_POST } from './types';
 
 // Add Post
 export const addPost = (postData) => (dispatch) => {
@@ -41,7 +41,7 @@ export const addComment = (postID, commentData) => (dispatch) => {
 
 // Get Posts
 export const getPosts = () => (dispatch) => {
-	dispatch(setPostLanding());
+	dispatch(setPostLoading());
 	axios
 		.get('/api/post')
 		.then((res) =>
@@ -60,7 +60,8 @@ export const getPosts = () => (dispatch) => {
 
 // Get Posts By ID
 export const getPost = (id) => (dispatch) => {
-	dispatch(setPostLanding());
+  dispatch(clearPost())
+	dispatch(setPostLoading());
 	axios
 		.get(`/api/post/${id}`)
 		.then((res) =>
@@ -98,7 +99,7 @@ export const removeLike = (id) => (dispatch) => {
 };
 
 // Set loading state
-export const setPostLanding = () => {
+export const setPostLoading = () => {
 	return {
 		type: POST_LOADING
 	};
@@ -108,5 +109,12 @@ export const setPostLanding = () => {
 export const clearErrors = () => {
 	return {
 		type: CLEAR_ERRORS
+	};
+};
+
+// Clear Post
+export const clearPost = () => {
+	return {
+		type: CLEAR_POST
 	};
 };
