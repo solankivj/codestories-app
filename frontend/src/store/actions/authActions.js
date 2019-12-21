@@ -4,22 +4,11 @@ import setAuthToken from '../utils/setAuthToken';
 
 import { GET_ERRORS, SET_CURRENT_USER } from './types';
 
-//Register User
+// User with Token
 
-export const registerUser = (userData, history) => (dispatch) => {
-	axios.post('/api/user/register', userData).then((res) => history.push('/login')).catch((err) =>
-		dispatch({
-			type: GET_ERRORS,
-			payload: err.response.data
-		})
-	);
-};
-
-// Login User with Token
-
-export const loginUser = (userData) => (dispatch) => {
+export const requestToken = () => (dispatch) => {
 	axios
-		.post('/api/user/login', userData)
+		.post('/api/user/')
 		.then((res) => {
 			// Save to LocalStorage
 			const { token } = res.data;
@@ -42,20 +31,10 @@ export const loginUser = (userData) => (dispatch) => {
 		);
 };
 
-// Set logged in user
+// Set user
 export const setCurrentUser = (decoded) => {
 	return {
 		type: SET_CURRENT_USER,
 		payload: decoded
 	};
-};
-
-// Log user out
-export const logoutUser = () => (dispatch) => {
-	// Remove token from localStorage
-	localStorage.removeItem('jwtToken');
-	// Remove auth header for future requests
-	setAuthToken(false);
-	// Set current user to {} which will set isAuthenticated to false
-	dispatch(setCurrentUser({}));
 };
