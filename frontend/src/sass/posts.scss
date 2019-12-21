@@ -1,0 +1,27 @@
+.posts-section {
+	.posts-center {
+		.posts-container {
+			display: flex;
+
+			.section-2 {
+				min-width: 510px;
+				width: 510px;
+				background: #fff;
+				margin: 0 1rem;
+				border: 1px solid #e6ecf0;
+			}
+
+			.section-1 {
+				background: goldenrod;
+				flex: 1;
+				border: 1px solid #e6ecf0;
+			}
+
+			.section-3 {
+				background: greenyellow;
+				flex: 1;
+				border: 1px solid #e6ecf0;
+			}
+		}
+	}
+}

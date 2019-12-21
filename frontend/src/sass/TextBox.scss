@@ -1,0 +1,95 @@
+.story-container {
+	width: 100%;
+	.dummyTextBox {
+		display: flex;
+		background: #fff;
+		padding: 10px 15px 10px 25px;
+		align-items: flex-start;
+		border-bottom: 1px solid #f2f2f3;
+
+		.profile-img {
+			border-radius: 50%;
+			display: block;
+			width: 33px;
+			height: 33px;
+		}
+
+		.textbox-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin-left: 10px;
+			width: 100%;
+
+			.dummyTextContainer {
+				background: #fff;
+				background: #eaebfd;
+				padding: 10px;
+				align-items: flex-start;
+				display: flex;
+				align-items: center;
+				width: 100%;
+				border-radius: 3px;
+				cursor: pointer;
+				p {
+					font-size: .9rem;
+					color: #999;
+					font-weight: 500;
+				}
+			}
+
+			.originalTextBox {
+				position: relative;
+
+				.emoji-mart {
+					width: 265px;
+					position: absolute;
+					left: 384px;
+					top: 37px;
+				}
+				textarea {
+					width: 100%;
+					padding: .9rem;
+					border: 2px solid #3770ff;
+					border-radius: 3px;
+					padding-right: 2.6rem;
+					resize: none;
+
+					&:focus {
+						border: 2px solid #3770ff;
+						border-radius: 3px;
+					}
+				}
+
+				.share-post-btn {
+					display: flex;
+					justify-content: flex-end;
+					margin-top: .5rem;
+
+					button {
+						background: #3037ed;
+						color: #fff;
+						font-weight: 700;
+						font-size: .8rem;
+						text-transform: uppercase;
+						padding: .5rem 1rem;
+						border: 0;
+						cursor: pointer;
+						border-radius: 20px;
+						line-height: 1.5;
+						letter-spacing: .03rem;
+					}
+				}
+
+				.emoji-icon {
+					position: absolute;
+					height: 20px;
+					width: 20px;
+					fill: #999;
+					right: 12px;
+					top: 12px;
+				}
+			}
+		}
+	}
+}
