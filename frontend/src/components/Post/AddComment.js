@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addComment } from '../../actions/postActions';
+
+import { addComment } from '../../store/actions/postActions';
 
 class AddComment extends Component {
 	state = {

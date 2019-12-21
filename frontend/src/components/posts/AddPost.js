@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addPost } from '../../actions/postActions';
-import { FaRegSmile } from 'react-icons/fa';
-import { Picker, emojiIndex } from 'emoji-mart';
-import 'emoji-mart/css/emoji-mart.css';
+import { addPost } from '../../store/actions/postActions';
 
 class AddPost extends Component {
 	state = {
 		text: '',
 		errors: {},
-		emojiPicker: false,
 		showTextBox: false
 	};
 
@@ -20,8 +16,6 @@ class AddPost extends Component {
 		const { user } = this.props.auth;
 		const newPost = {
 			text: this.state.text,
-			name: user.name,
-			avatar: user.avatar,
 			id: user.id
 		};
 
@@ -35,31 +29,6 @@ class AddPost extends Component {
 		this.setState({
 			[e.target.name]: e.target.value
 		});
-	};
-
-	handleEmojiPicker = () => {
-		this.setState({ emojiPicker: !this.state.emojiPicker });
-	};
-
-	colonToUnicode = (message) => {
-		return message.replace(/:[A-Za-z0-9_+-]+:/g, (x) => {
-			x = x.replace(/:/g, '');
-			let emoji = emojiIndex.emojis[x];
-			if (typeof emoji !== 'undefined') {
-				let unicode = emoji.native;
-				if (typeof unicode !== 'undefined') {
-					return unicode;
-				}
-			}
-			x = ':' + x + ':';
-			return x;
-		});
-	};
-
-	handleAddEmoji = (emoji) => {
-		const oldMessage = this.state.text;
-		const newMessage = this.colonToUnicode(`${oldMessage}${emoji.colons}`);
-		this.setState({ text: newMessage });
 	};
 
 	componentWillReceiveProps(newProps) {
@@ -106,17 +75,6 @@ class AddPost extends Component {
 										this.OgTextBox = element;
 									}}
 								>
-									{this.state.emojiPicker && (
-										<Picker
-											ref={(element) => {
-												this.emojiElement = element;
-											}}
-											set="apple"
-											onSelect={this.handleAddEmoji}
-											title="Pick Your Emoji"
-											emoji="point_up"
-										/>
-									)}
 									<textarea
 										name="text"
 										id=""
@@ -127,10 +85,6 @@ class AddPost extends Component {
 										placeholder="Share your story!"
 										autofocus
 									/>
-									<FaRegSmile onClick={this.handleEmojiPicker} className="emoji-icon" />
-									{/* {this.state.errors.text ? (
-										<p style={{ color: 'red' }}>{this.state.errors.text}</p>
-									) : null} */}
 									<div className="share-post-btn">
 										<button type="submit">Share</button>
 									</div>

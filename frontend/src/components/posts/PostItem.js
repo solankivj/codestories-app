@@ -2,17 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { deletePosts, addLike, removeLike } from '../../actions/postActions';
+import { addLike, removeLike } from '../../store/actions/postActions';
 import { FiMessageSquare, FiMoreVertical } from 'react-icons/fi';
 
 class PostItem extends Component {
-	deletePostOnClick = (id) => {
-		if (!this.props.auth.isAuthenticated) {
-			// redirect to login
-			window.location.href = '/login';
-		}
-		this.props.deletePosts(id);
-	};
 
 	onClickLike = (likes, id) => {
 		if (!this.props.auth.isAuthenticated) {
@@ -33,15 +26,11 @@ class PostItem extends Component {
 		return (
 			<div className="post-item">
 				<div className="post-container">
-					<div className="img">
-						<img src={post.avatar} alt="user-img" />
-					</div>
 					<div className="post-info">
 						<div className="user-info">
-							<h4>{post.name}</h4>
 							<div className="extra">
-								<p className="">{moment(post.date).startOf().fromNow()}</p>
-								<FiMoreVertical className="extra-option" />
+								{/* <p className="">{moment(post.date).startOf().fromNow()}</p> */}
+                Date
 							</div>
 						</div>
 						<Link to={`/post/${post._id}`} className="post-text">
@@ -69,4 +58,4 @@ const mapStateToProps = (state) => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { deletePosts, addLike, removeLike })(PostItem);
+export default connect(mapStateToProps, { addLike, removeLike })(PostItem);

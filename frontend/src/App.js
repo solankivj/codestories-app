@@ -12,7 +12,7 @@ import Post from './components/Post';
 import './App.css';
 import './sass/style.scss';
 import { setCurrentUser, requestToken } from './store/actions/authActions';
-
+console.log(store)
 // Check for token
 if (localStorage.jwtToken) {
 	// Set auth token header auth
@@ -23,7 +23,7 @@ if (localStorage.jwtToken) {
 	store.dispatch(setCurrentUser(decoded));
 } else {
   // Make Token Request
-  store.dispatch(requestToken);
+  store.dispatch(requestToken());
 }
 
 class App extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getPost } from '../../actions/postActions';
+import { getPost } from '../../store/actions/postActions';
 import AddComment from './AddComment';
 import AllComment from './AllComment';
 

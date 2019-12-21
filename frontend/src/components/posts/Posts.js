@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AddPost from './AddPost';
-import { getPosts } from '../../actions/postActions';
-import { getCurrentProfile } from '../../actions/profileActions';
+import { getPosts } from '../../store/actions/postActions';
 import PostFeed from './PostFeed';
 
 class Posts extends Component {
 	componentDidMount() {
 		this.props.getPosts();
-		this.props.getCurrentProfile();
 	}
 
 	render() {
@@ -16,7 +14,7 @@ class Posts extends Component {
 		let postContent;
 
 		if (posts === null || loading) {
-			postContent = <div>LOading....</div>;
+			postContent = <div>Loading....</div>;
 		} else {
 			postContent = <PostFeed posts={posts} />;
 		}
@@ -45,4 +43,4 @@ const mapStateToProps = (state) => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { getPosts, getCurrentProfile })(Posts);
+export default connect(mapStateToProps, { getPosts })(Posts);

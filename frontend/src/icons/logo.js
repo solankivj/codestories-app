@@ -21,4 +21,4 @@ const Logo = () => {
   );
 };
 
-export default L;
+export default Logo;
