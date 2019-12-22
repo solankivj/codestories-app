@@ -35,7 +35,7 @@ class AddPost extends Component {
 		if (newProps.errors) {
 			this.setState({ errors: newProps.errors });
 		}
-	}
+  }
 
 	handleshowTextBox = () => {
 		this.setState(
