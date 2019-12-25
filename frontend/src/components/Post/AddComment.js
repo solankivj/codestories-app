@@ -48,18 +48,20 @@ class AddComment extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.onSubmit}>
-					<textarea
-						name="text"
-						id=""
-						cols="30"
-						rows="10"
-						value={this.state.text}
-						onChange={this.onChange}
-						placeholder="Add Comment to POST!!!"
-					/>
-					{this.state.errors.text ? <p style={{ color: 'red' }}>{this.state.errors.text}</p> : null}
-					<button type="submit">ADD COMMENT!!</button>
+				<form 
+          className="comment-box"
+          onSubmit={this.onSubmit}>
+            <textarea  
+              name="text"
+              id=""
+              cols="30"
+              rows="5"
+              value={this.state.text}
+              onChange={this.onChange}
+              placeholder="Add Comment to POST!!!"
+            />
+            {/* TODO: SHOW ERROR */}
+            <button type="submit">Post Comment</button>
 				</form>
 			</div>
 		);

@@ -8,9 +8,10 @@ class AllComment extends Component {
 
 	render() {
 		return (
-			<div style={{ background: 'pink', margin: '20px', width: '300px' }}>
-				<p>{this.props.comment.text}</p>
-				<p>Comment BY : {this.props.comment.name}</p>
+			<div className="comment">
+        <span className="author">#1816 commented</span>
+				<p className="message">{this.props.comment.text}</p>
+				<span className="created-at">10.03.17 03:45pm</span>
 			</div>
 		);
 	}
