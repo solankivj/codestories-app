@@ -31,13 +31,11 @@ class App extends Component {
 		return (
 			<Provider store={store}>
 				<Router>
-					<div className="App">
+					<div className="container">
 						<Navbar />
-						<div className="main-container">
-							<Route exact path="/" component={Posts} />
-							<Route exact path="/post/:id" component={Post} />
-							<Route exact path="/notfound" component={NotFound} />
-						</div>
+            <Route exact path="/" component={Posts} />
+            <Route exact path="/post/:id" component={Post} />
+            <Route exact path="/notfound" component={NotFound} />
 					</div>
 				</Router>
 			</Provider>

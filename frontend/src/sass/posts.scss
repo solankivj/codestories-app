@@ -1,22 +1,5 @@
-.posts-section {
-	.posts-center {
-		.posts-container {
-      display: flex;
-      justify-content: center;
-
-			.section-2 {
-				max-width: 750px;
-				width: 100%;
-				background: #fff;
-				margin-right: 1rem;
-				border: 1px solid #e6ecf0;
-			}
-
-			.section-3 {
-				background: greenyellow;
-				flex: 1;
-				border: 1px solid #e6ecf0;
-			}
-		}
-	}
+.section {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e6ecf0;
 }

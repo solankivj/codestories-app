@@ -20,19 +20,11 @@ class Posts extends Component {
 		}
 
 		return (
-			<div className="posts-section">
-				<div className="container">
-					<div className="posts-center">
-						<div className="posts-container">
-							<div className="section-2">
-								<AddPost img={this.props.auth.user.avatar} />
-								{postContent}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
+      <div className="section">
+        <AddPost img={this.props.auth.user.avatar} />
+        {postContent}
+      </div>
+    );
 	}
 }
 
