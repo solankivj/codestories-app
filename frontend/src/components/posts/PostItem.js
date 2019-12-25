@@ -19,7 +19,7 @@ class PostItem extends Component {
 	};
 
 	render() {
-		const { post, auth } = this.props;
+		const { post } = this.props;
 
 		return (
 			<div className="post-item">
@@ -29,13 +29,13 @@ class PostItem extends Component {
 							{post.text}
 						</Link>
 						<div className="post-action">
-							<div className="been-there">
-								<button onClick={() => this.onClickLike(post.likes, post._id)}>
-									Been There <span role="img">✋</span>
-								</button>
-							</div>
+              <button 
+                className="been-there" 
+                onClick={() => this.onClickLike(post.likes, post._id)}>
+                  Been There <span role="img">✋</span>
+              </button>
 							<Link className="comment-btn" to={`/post/${post._id}`}>
-								<span>{post.comments.length > 0 ? post.comments.length : 0} Comments</span>
+								{post.comments.length > 0 ? post.comments.length : 0} Comments
 							</Link>
 						</div>
 					</div>

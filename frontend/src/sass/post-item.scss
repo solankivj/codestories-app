@@ -20,29 +20,6 @@
 		.post-info {
 			width: 100%;
 			margin-left: .8rem;
-			.user-info {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				.extra {
-					display: flex;
-
-					.extra-option {
-						width: 15px;
-						height: 15px;
-						color: #999;
-						cursor: pointer;
-						margin-left: .8rem;
-					}
-
-					p {
-						line-height: 0.9;
-						font-size: .9rem;
-						color: #999;
-						font-weight: 500;
-					}
-				}
-			}
 
 			.post-text {
 				padding: .7rem 0;
@@ -51,10 +28,10 @@
 			}
 
 			.post-action {
-				display: flex;
+        display: flex;
+        align-items: center;
 
 				.been-there {
-					button {
 						background: #3037ed;
 						color: #fff;
 						font-weight: 700;
@@ -66,29 +43,18 @@
 						border-radius: 5px;
 						line-height: 1.5;
 						letter-spacing: .03rem;
-					}
 				}
 
 				.comment-btn {
-					display: flex;
 					margin-left: 1rem;
-					justify-content: center;
-					align-items: center;
-					background: #fff;
 					text-transform: capitalize;
 					cursor: pointer;
-					border-radius: 20px;
-					line-height: 1.5;
 					letter-spacing: .03rem;
-
-					span {
-						color: rgb(128, 125, 125);
-						font-weight: 500;
-						font-size: .8rem;
-						margin-left: .5rem;
-					}
-				}
+          color: rgb(128, 125, 125);
+          font-weight: 500;
+          font-size: .8rem;
 			}
 		}
 	}
+  }
 }
