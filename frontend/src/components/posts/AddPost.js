@@ -49,7 +49,7 @@ class AddPost extends Component {
 	};
 
 	closeTextBox = (event) => {
-		if (!this.OgTextBox.contains(event.target)) {
+		if (this.OgTextBox && !this.OgTextBox.contains(event.target)) {
 			this.setState({ showTextBox: false }, () => {
 				document.removeEventListener('click', this.closeTextBox);
 			});
@@ -71,7 +71,7 @@ class AddPost extends Component {
 									onSubmit={this.onSubmit}
 									className="originalTextBox"
 									ref={(element) => {
-										this.OgTextBox = element;
+                    this.OgTextBox = element;
 									}}
 								>
 									<textarea
