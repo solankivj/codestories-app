@@ -5,7 +5,7 @@ const PostFeed = ({ posts }) => {
   return (
     <div>
       {posts ? 
-        posts.map((post) => <PostItem key={post._id} post={post} />) 
+        posts.map((post) => <PostItem fetchSingle={false} key={post._id} post={post} />) 
         : []
       }
     </div>

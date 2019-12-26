@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getPost } from '../../store/actions/postActions';
 import CommentBox from './CommentBox';
 import Comment from './Comment';
+import PostItem from "../posts/PostItem";
 
 class Post extends Component {
 
@@ -30,17 +31,18 @@ class Post extends Component {
     const { comments } = post;
     
 		return (
-			post === null || loading ? (
+			Object.keys(post).length === 0 || loading ? (
         <div>
           Loading Post...
         </div>
       ) : (
         <div className="post">
-          <p className="message-text">{post.text}</p>
+          {/* <p className="message-text">{post.text}</p> */}
+          {Object.keys(post).length > 0 ? <PostItem post={post} fetchSingle={true} /> : null}
           {comments ? (
             comments.map((comment) => <Comment postID={post._id} key={comment._id} comment={comment} />)
           ) : (
-            <h1>Loading Comment</h1>
+            null
           )}
           <CommentBox postID={post._id} />
         </div>

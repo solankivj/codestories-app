@@ -47,8 +47,10 @@ export const getPosts = () => (dispatch) => {
 };
 
 // Get Posts By ID
-export const getPost = (id) => (dispatch) => {
-  dispatch(clearPost())
+export const getPost = (id, clear) => (dispatch) => {
+  if(!clear) {
+    dispatch(clearPost())
+  }
 	return axios
 		.get(`/api/post/${id}`)
 		.then((res) =>
@@ -64,16 +66,28 @@ export const getPost = (id) => (dispatch) => {
 };
 
 // Add like
-export const addLike = (id) => (dispatch) => {
-	return axios.post(`/api/post/like/${id}`).then((res) => dispatch(getPosts())).catch((err) => {
+export const addLike = (id, fetchSingle) => (dispatch) => {
+	return axios.post(`/api/post/like/${id}`).then((res) => {
+    if(fetchSingle) {
+      dispatch(getPost(id, true))
+    } else {
+      dispatch(getPosts())
+    }
+  }).catch((err) => {
     // TODO: Handle Error
     console.log(err)
   });
 };
 
 // Remove like
-export const removeLike = (id) => (dispatch) => {
-	return axios.post(`/api/post/unlike/${id}`).then((res) => dispatch(getPosts())).catch((err) => {
+export const removeLike = (id,fetchSingle) => (dispatch) => {
+	return axios.post(`/api/post/unlike/${id}`).then((res) => {
+    if(fetchSingle) {
+      dispatch(getPost(id, true))
+    } else {
+      dispatch(getPosts())
+    }
+  }).catch((err) => {
     // TODO: Handle Error
     console.log(err)
   });
