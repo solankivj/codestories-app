@@ -5,12 +5,25 @@ import { getPosts } from '../../store/actions/postActions';
 import PostFeed from './PostFeed';
 
 class Posts extends Component {
+  state = {
+    loading: false
+  }
+
 	componentDidMount() {
-		this.props.getPosts();
+    this.setState({
+      loading: true
+    })
+		this.props.getPosts().then(() => {
+      this.setState({
+        loading: false
+      })
+    })
 	}
 
 	render() {
-		const { posts, loading } = this.props.post;
+    const { posts } = this.props.post;
+    const { loading } = this.state;
+
     let postContent;
     
 		if (posts === null || loading) {

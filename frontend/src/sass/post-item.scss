@@ -3,23 +3,19 @@
 
 	&:hover {
 		background: #f2f2f363;
-	}
-
-	.post-container {
-		padding: 1rem;
-		display: flex;
-		.img {
-			img {
-				width: 43px;
-				height: 43px;
-				display: block;
-				border-radius: 50%;
-			}
-		}
-
-		.post-info {
-			width: 100%;
-			margin-left: .8rem;
+  }
+  
+    .post-info {
+      padding: 1rem;
+      width: 100%;
+      
+      .highlight {
+        letter-spacing: .03rem;
+        color: #807d7d;
+        font-weight: 500;
+        font-size: .75rem;
+        font-style: italic;
+      }
 
 			.post-text {
 				padding: .7rem 0;
@@ -30,31 +26,35 @@
 			.post-action {
         display: flex;
         align-items: center;
-
-				.been-there {
-						background: #3037ed;
-						color: #fff;
-						font-weight: 700;
-						font-size: .8rem;
-						text-transform: uppercase;
-						padding: .5rem 1rem;
-						border: 0;
-						cursor: pointer;
-						border-radius: 5px;
-						line-height: 1.5;
-						letter-spacing: .03rem;
-				}
-
-				.comment-btn {
-					margin-left: 1rem;
-					text-transform: capitalize;
-					cursor: pointer;
-					letter-spacing: .03rem;
-          color: rgb(128, 125, 125);
-          font-weight: 500;
-          font-size: .8rem;
-			}
-		}
+		  }
 	}
-  }
+}
+
+.center-verticaly {
+  display: flex;
+  align-items: center;
+}
+
+.been-there {
+  background: #3037ed;
+  color: #fff;
+  font-weight: 700;
+  font-size: .8rem;
+  text-transform: uppercase;
+  padding: .5rem 1rem;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  line-height: 1.5;
+  letter-spacing: .03rem;
+}
+
+.comment-btn {
+margin-left: 1rem;
+text-transform: capitalize;
+cursor: pointer;
+letter-spacing: .03rem;
+color: rgb(128, 125, 125);
+font-weight: 500;
+font-size: .8rem;
 }

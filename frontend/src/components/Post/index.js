@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPost } from '../../store/actions/postActions';
-import AddComment from './AddComment';
-import AllComment from './AllComment';
+import CommentBox from './CommentBox';
+import Comment from './Comment';
 
 class Post extends Component {
+
+  state = {
+    loading: false
+  }
+
 	componentDidMount() {
-		const { id } = this.props.match.params;
-		this.props.getPost(id);
+    const { id } = this.props.match.params;
+
+    this.setState({
+      loading: true
+    })
+
+		this.props.getPost(id).then(() => {
+      this.setState({
+        loading: false
+      })
+    })
 	}
 
 	render() {
-		const { post, loading } = this.props.post;
-		const { comments } = post;
+    const { post } = this.props.post;
+    const { loading } = this.state;
+    const { comments } = post;
+    
 		return (
 			post === null || loading ? (
         <div>
@@ -22,11 +38,11 @@ class Post extends Component {
         <div className="post">
           <p className="message-text">{post.text}</p>
           {comments ? (
-            comments.map((comment) => <AllComment postID={post._id} key={comment._id} comment={comment} />)
+            comments.map((comment) => <Comment postID={post._id} key={comment._id} comment={comment} />)
           ) : (
             <h1>Loading Comment</h1>
           )}
-          <AddComment postID={post._id} />
+          <CommentBox postID={post._id} />
         </div>
       )
 		);

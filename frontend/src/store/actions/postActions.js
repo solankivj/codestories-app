@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { ADD_POST, GET_ERRORS, GET_POSTS, GET_POST, POST_LOADING, CLEAR_ERRORS, CLEAR_POST } from './types';
+import { ADD_POST, GET_POSTS, GET_POST, CLEAR_POST } from './types';
 
 // Add Post
 export const addPost = (postData) => (dispatch) => {
-	dispatch(clearErrors());
-	axios
+	return axios
 		.post('/api/post', postData)
 		.then((res) =>
 			dispatch({
@@ -12,18 +11,15 @@ export const addPost = (postData) => (dispatch) => {
 				payload: res.data
 			})
 		)
-		.catch((err) =>
-			dispatch({
-				type: GET_ERRORS,
-				payload: err.response.data
-			})
-		);
+		.catch((err) => {
+      // TODO: Handle Error
+      console.log(err)
+    });
 };
 
 // Add Comment
 export const addComment = (postID, commentData) => (dispatch) => {
-	dispatch(clearErrors());
-	axios
+	return axios
 		.post(`/api/post/comment/${postID}`, commentData)
 		.then((res) =>
 			dispatch({
@@ -31,18 +27,15 @@ export const addComment = (postID, commentData) => (dispatch) => {
 				payload: res.data
 			})
 		)
-		.catch((err) =>
-			dispatch({
-				type: GET_ERRORS,
-				payload: err.response.data
-			})
-		);
+		.catch((err) => {
+      // TODO: Handle Error
+      console.log(err)
+    });
 };
 
 // Get Posts
 export const getPosts = () => (dispatch) => {
-	dispatch(setPostLoading());
-	axios
+	return axios
 		.get('/api/post')
 		.then((res) =>
 			dispatch({
@@ -50,19 +43,16 @@ export const getPosts = () => (dispatch) => {
 				payload: res.data
 			})
 		)
-		.catch((err) =>
-			dispatch({
-				type: GET_POSTS,
-				payload: null
-			})
-		);
+		.catch((err) => {
+      // TODO: Handle Error
+      console.log(err)
+    });
 };
 
 // Get Posts By ID
 export const getPost = (id) => (dispatch) => {
   dispatch(clearPost())
-	dispatch(setPostLoading());
-	axios
+	return axios
 		.get(`/api/post/${id}`)
 		.then((res) =>
 			dispatch({
@@ -70,46 +60,26 @@ export const getPost = (id) => (dispatch) => {
 				payload: res.data
 			})
 		)
-		.catch((err) =>
-			dispatch({
-				type: GET_POST,
-				payload: null
-			})
-		);
+		.catch((err) => {
+      // TODO: Handle Error
+      console.log(err)
+    });
 };
 
 // Add like
 export const addLike = (id) => (dispatch) => {
-	axios.post(`/api/post/like/${id}`).then((res) => dispatch(getPosts())).catch((err) =>
-		dispatch({
-			type: GET_ERRORS,
-			payload: err.response.data
-		})
-	);
+	return axios.post(`/api/post/like/${id}`).then((res) => dispatch(getPosts())).catch((err) => {
+    // TODO: Handle Error
+    console.log(err)
+  });
 };
 
 // Remove like
 export const removeLike = (id) => (dispatch) => {
-	axios.post(`/api/post/unlike/${id}`).then((res) => dispatch(getPosts())).catch((err) =>
-		dispatch({
-			type: GET_ERRORS,
-			payload: err.response.data
-		})
-	);
-};
-
-// Set loading state
-export const setPostLoading = () => {
-	return {
-		type: POST_LOADING
-	};
-};
-
-// Clear Error
-export const clearErrors = () => {
-	return {
-		type: CLEAR_ERRORS
-	};
+	return axios.post(`/api/post/unlike/${id}`).then((res) => dispatch(getPosts())).catch((err) => {
+    // TODO: Handle Error
+    console.log(err)
+  });
 };
 
 // Clear Post

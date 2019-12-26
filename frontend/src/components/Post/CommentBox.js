@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { addComment } from '../../store/actions/postActions';
 
-class AddComment extends Component {
+class CommentBox extends Component {
 	state = {
 		text: '',
 		errors: {}
@@ -73,4 +73,4 @@ const mapStateToProps = (state) => ({
 	errors: state.errors
 });
 
-export default connect(mapStateToProps, { addComment })(AddComment);
+export default connect(mapStateToProps, { addComment })(CommentBox);
