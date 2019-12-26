@@ -1,15 +1,12 @@
 import axios from 'axios';
-import { ADD_POST, GET_POSTS, GET_POST, CLEAR_POST } from './types';
+import { GET_POSTS, GET_POST, CLEAR_POST } from './types';
 
 // Add Post
 export const addPost = (postData) => (dispatch) => {
 	return axios
 		.post('/api/post', postData)
 		.then((res) =>
-			dispatch({
-				type: ADD_POST,
-				payload: res.data
-			})
+			dispatch(getPosts())
 		)
 		.catch((err) => {
       // TODO: Handle Error

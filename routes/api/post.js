@@ -24,7 +24,7 @@ function authenticationToken(req, res, next) {
 // @access      Public
 router.get('/', (req, res) => {
 	Post.find()
-		.sort({ date: -1 })
+		.sort({ createdAt: -1 })
 		.then((posts) => res.json(posts))
 		.catch((err) => res.status(404).json({ nopostsfound: 'No post found' }));
 });
