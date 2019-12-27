@@ -7,8 +7,7 @@ import { SET_CURRENT_USER } from './types';
 // User with Token
 
 export const requestToken = () => (dispatch) => {
-  console.log("From action")
-	axios
+	return axios
 		.post('/api/user/')
 		.then((res) => {
 			// Save to LocalStorage
