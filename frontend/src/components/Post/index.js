@@ -37,7 +37,6 @@ class Post extends Component {
         </div>
       ) : (
         <div className="post">
-          {/* <p className="message-text">{post.text}</p> */}
           {Object.keys(post).length > 0 ? <PostItem post={post} fetchSingle={true} /> : null}
           {comments ? (
             comments.map((comment) => <Comment postID={post._id} key={comment._id} comment={comment} />)
