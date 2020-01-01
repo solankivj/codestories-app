@@ -38,11 +38,13 @@ class Post extends Component {
       ) : (
         <div className="post">
           {Object.keys(post).length > 0 ? <PostItem post={post} fetchSingle={true} /> : null}
-          {comments ? (
-            comments.map((comment) => <Comment postID={post._id} key={comment._id} comment={comment} />)
-          ) : (
-            null
-          )}
+          <div style={{borderTop: "2px solid #f2f2f3"}}>
+            {comments ? (
+              comments.map((comment) => <Comment postID={post._id} key={comment._id} comment={comment} />)
+            ) : (
+              null
+            )}
+          </div>
           <CommentBox postID={post._id} />
         </div>
       )

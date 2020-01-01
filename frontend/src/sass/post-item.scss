@@ -6,7 +6,7 @@
   }
   
     .post-info {
-      padding: 1rem;
+      padding: 1rem 2rem;
       width: 100%;
       
       .highlight {
@@ -18,7 +18,7 @@
       }
 
 			.post-text {
-				padding: .7rem 0;
+				padding: .7rem 0 1.7rem 0;
 				display: inline-block;
         width: 100%;
         white-space: pre-line;
@@ -39,25 +39,21 @@
 }
 
 .been-there {
-  background: #3037ed;
-  color: #fff;
-  font-weight: 700;
-  font-size: .8rem;
-  text-transform: capitalize;
-  padding: .5rem 1rem;
   border: 0;
+  background: transparent;
   cursor: pointer;
-  border-radius: 5px;
-  line-height: 1.5;
-  letter-spacing: .03rem;
+  font-size: 1.3rem;
 }
 
 .comment-btn {
-margin-left: 1rem;
-text-transform: capitalize;
-cursor: pointer;
-letter-spacing: .03rem;
-color: rgb(128, 125, 125);
-font-weight: 500;
-font-size: .8rem;
+  margin-left: 1rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  letter-spacing: .03rem;
+  color: rgb(128, 125, 125);
+  font-size: .8rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

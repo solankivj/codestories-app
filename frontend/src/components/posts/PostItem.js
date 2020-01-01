@@ -31,13 +31,17 @@ class PostItem extends Component {
 							{post.text}
 						</Link>
 						<div className="post-action">
-              <div>
-                <BeenThereBtn fetchSingle={fetchSingle} likes={post.likes} id={post._id} />
+              <div className="center-verticaly">
+                <BeenThereBtn isLiked={this.isPostLikedByUser} fetchSingle={fetchSingle} likes={post.likes} id={post._id} />
                 <Link className="comment-btn" to={`/stories/${post._id}`}>
                   {post.comments.length > 0 ? post.comments.length : 0} Comments
                 </Link>
               </div>
-              <span>{format(new Date(post.createdAt), "dd.MM.yy h:mm aa")}</span>
+              { fetchSingle ? 
+                <span className="created-at">
+                  {format(new Date(post.createdAt), "dd.MM.yy h:mm aa")}
+                </span> 
+              : null }
 						</div>
 					</div>
 				</div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addLike, removeLike } from '../../store/actions/postActions';
 
-const BeenThereBtn = ({likes, id, auth, removeLike, addLike, fetchSingle}) => {
+const BeenThereBtn = ({likes, id, auth, removeLike, addLike, fetchSingle, isLiked}) => {
   const onClickLike = (likes, id) => {
     if (likes.filter((like) => like.user === auth.user.id).length > 0) {
       fetchSingle ? removeLike(id, fetchSingle) : removeLike(id);
@@ -13,9 +13,10 @@ const BeenThereBtn = ({likes, id, auth, removeLike, addLike, fetchSingle}) => {
 
   return (
     <button 
-      className="been-there" 
+      className="been-there"
+      style={!isLiked() ? {filter: "grayscale(1)"} : {}} 
       onClick={() => onClickLike(likes, id)}>
-        {Object.keys(likes).length > 0 ? `${Object.keys(likes).length} ` : ""}Been There <span role="img">🙌</span>
+        {Object.keys(likes).length > 0 ? `${Object.keys(likes).length} ` : ""}<span aria-label="been-there-btn" role="img">👏</span>
     </button>
   );
 };
