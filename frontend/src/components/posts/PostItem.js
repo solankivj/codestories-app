@@ -27,13 +27,13 @@ class PostItem extends Component {
             <p className="highlight">
               {`${likedByUserText}${likedByOtherText}`}
             </p>
-						<Link to={`/post/${post._id}`} className="post-text">
+						<Link to={`/stories/${post._id}`} className="post-text">
 							{post.text}
 						</Link>
 						<div className="post-action">
               <div>
                 <BeenThereBtn fetchSingle={fetchSingle} likes={post.likes} id={post._id} />
-                <Link className="comment-btn" to={`/post/${post._id}`}>
+                <Link className="comment-btn" to={`/stories/${post._id}`}>
                   {post.comments.length > 0 ? post.comments.length : 0} Comments
                 </Link>
               </div>
