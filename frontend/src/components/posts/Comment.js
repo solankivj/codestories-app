@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import format from 'date-fns/format'
 
 const Comment = ({ comment }) => {
   return (
     <div className="comment">
       <span className="author">#1816 commented</span>
       <p className="message">{comment.text}</p>
-      <span className="created-at">10.03.17 03:45pm</span>
+      <span className="created-at">
+        {format(new Date(comment.createdAt), "dd.MM.yy h:mm aa")}
+      </span>
     </div>
   );
 }

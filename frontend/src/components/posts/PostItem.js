@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import BeenThereBtn from "../Post/BeenThereBtn";
+import format from 'date-fns/format'
+
+import BeenThereBtn from "./BeenThereBtn";
 
 class PostItem extends Component {
 
@@ -29,10 +31,13 @@ class PostItem extends Component {
 							{post.text}
 						</Link>
 						<div className="post-action">
-              <BeenThereBtn fetchSingle={fetchSingle} likes={post.likes} id={post._id} />
-							<Link className="comment-btn" to={`/post/${post._id}`}>
-								{post.comments.length > 0 ? post.comments.length : 0} Comments
-							</Link>
+              <div>
+                <BeenThereBtn fetchSingle={fetchSingle} likes={post.likes} id={post._id} />
+                <Link className="comment-btn" to={`/post/${post._id}`}>
+                  {post.comments.length > 0 ? post.comments.length : 0} Comments
+                </Link>
+              </div>
+              <span>{format(new Date(post.createdAt), "dd.MM.yy h:mm aa")}</span>
 						</div>
 					</div>
 				</div>

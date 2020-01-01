@@ -7,7 +7,7 @@ import store from '../src/store';
 import Navbar from './components/layout/Navbar';
 import NotFound from './components/NotFound';
 import Posts from './components/posts/Posts';
-import Post from './components/Post';
+import Post from './components/posts/Post';
 
 import './App.css';
 import './sass/style.scss';

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../store/actions/postActions';
 
-class AddPost extends Component {
+class PostBox extends Component {
 	state = {
 		text: '',
 		errors: {},
@@ -97,7 +97,7 @@ class AddPost extends Component {
 	}
 }
 
-AddPost.propTypes = {
+PostBox.propTypes = {
 	addPost: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired
 };
@@ -107,4 +107,4 @@ const mapStateToProps = (state) => ({
 	errors: state.errors
 });
 
-export default connect(mapStateToProps, { addPost })(AddPost);
+export default connect(mapStateToProps, { addPost })(PostBox);

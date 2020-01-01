@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getPost } from '../../store/actions/postActions';
 import CommentBox from './CommentBox';
 import Comment from './Comment';
-import PostItem from "../posts/PostItem";
+import PostItem from "./PostItem";
 
 class Post extends Component {
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AddPost from './AddPost';
+import PostBox from './PostBox';
 import { getPosts } from '../../store/actions/postActions';
 import PostFeed from './PostFeed';
 
@@ -34,7 +34,7 @@ class Posts extends Component {
 
 		return (
       <div className="section">
-        <AddPost img={this.props.auth.user.avatar} />
+        <PostBox img={this.props.auth.user.avatar} />
         {postContent}
       </div>
     );
